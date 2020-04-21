@@ -1,30 +1,32 @@
 import java.util.Scanner;
 
-public class Lab4
+public class Lab4 
 {
 
 	public static void main(String[] args)
 	{
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);		
 
-		String input = sc.nextLine();
+		int hours = Integer.parseInt(sc.nextLine());
 
-		String[] arrInput = input.split(" ");
+		int minutes = Integer.parseInt(sc.nextLine());
 
-		int n = arrInput.length; 
-
-		for(int i = 0; i < n / 2; i++){
-
-			String temp1 = arrInput[i];
-			String temp2 = arrInput[n - 1 - i];
-			arrInput[i] = temp2;
-			arrInput[n - 1 - i] = temp1; 
+		if(minutes < 30){
+			minutes = minutes + 30;
 			 
-		}
+			System.out.println(hours + ":" + minutes);
 
-		for(int i = 0; i < n; i++){
+		}else{
+			if(hours<23)hours++;
+			else hours = 0;
 
-			System.out.print(arrInput[i] + " ");
+			minutes -= 30;
+
+			if( minutes >=0 && minutes < 10 ){
+				System.out.println(hours + ":0" + minutes);
+			}else{
+				System.out.println(hours + ":" + minutes);
+			}
 		}
 	}
 }
